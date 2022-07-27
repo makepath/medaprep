@@ -1,0 +1,20 @@
+# install: mamba env create -f environment.yml
+# update: mamba env update -f environment.yml
+
+name: stac-tutorial
+channels:
+  - conda-forge
+dependencies:
+  - notebook
+  - geopandas
+  - rasterio
+  - rioxarray
+  - ipykernel
+  - matplotlib 
+  - boto3
+  - xarray
+  - dask
+  - pystac
+  - shapely
+  - pystac-client
+  - s3fs
