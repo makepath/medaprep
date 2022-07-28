@@ -14,7 +14,7 @@ Describe what the need for this new feature is or what problem this new feature 
 Description of the new feature, how it will be used, what it will fix, etc. 
 
 **Design:**
-Include description of this feature's design with enough detail for those who are familiar enough with this project to understand the feature and how it could be implmented. This section should get into specifics of how the feature will be designed and implemented. 
+Include description of this feature's design with enough detail for those who are familiar enough with this project to understand the feature and how it could be implemented. This section should get into specifics of how the feature will be designed and implemented. 
 
 **Usage:** 
 Detailed instructions for this feature's use. 
@@ -30,4 +30,4 @@ Describe other solutions or features you have considered when coming up with thi
 ## Unresolved Questions
 What are parts of this feature's design that are undecided.
 ## Additional Notes or Context
-Anything elses that is important to know for the implementation of this new feature.
+Anything else that is important to know for the implementation of this new feature.
