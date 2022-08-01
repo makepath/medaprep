@@ -26,6 +26,8 @@ def skim(indata: xr.Dataset) -> pd.DataFrame:
     null_counts = indata.isnull().sum().to_array().data > 0
     mus = indata.mean().to_array().data
     stds = indata.std().to_array().data
+    maxs = indata.max().to_array().data
+    mins = indata.min().to_array().data
     CRS = indata.CRS
     resolution = indata.resolution
 
@@ -35,6 +37,8 @@ def skim(indata: xr.Dataset) -> pd.DataFrame:
         "NaNs": null_counts,
         "mean": mus,
         "std": stds,
+        "maximums":maxs,
+        "minimums":mins,
     }
     df = pd.DataFrame(data_dict)
     df["resolution"] = resolution
