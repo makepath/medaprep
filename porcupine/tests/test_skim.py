@@ -4,7 +4,7 @@ import xarray as xr
 import pandas as pd
 from pandas.testing import assert_series_equal
 
-from geolt import skim
+from porcupine import skim
 
 
 def create_input_dataset(seed=27) -> xr.Dataset:

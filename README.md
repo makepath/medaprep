@@ -1,4 +1,4 @@
-# geolt
+# porcupine
 
 ## pre-commit setup
 This project uses pre-commit, isort, black, and flake8 to help enforce best practices. These libraries are all included in `requirements-dev.txt` and can be installed with pip by running:
