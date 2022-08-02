@@ -1,1 +1,1 @@
-from .skim import skim
+from geolt.skim import skim
