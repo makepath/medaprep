@@ -1,10 +1,12 @@
-import xarray as xr
 import pandas as pd
+import xarray as xr
 
 
 def skim(indata: xr.Dataset) -> pd.DataFrame:
     """
-    'Skims' an Xarray dataset and returns basic checks: variables within the dataset, datatypes, if any NaNs are present in a variable, means and standard deviations of variables, resolution, and CRS of the data.
+    'Skims' an Xarray dataset and returns basic checks: variables within the
+    dataset, datatypes, if any NaNs are present in a variable, means and
+    standard deviations of variables, resolution, and CRS of the data.
 
     Parameters
     ----------
@@ -37,8 +39,8 @@ def skim(indata: xr.Dataset) -> pd.DataFrame:
         "NaNs": null_counts,
         "mean": mus,
         "std": stds,
-        "maximums":maxs,
-        "minimums":mins,
+        "maximums": maxs,
+        "minimums": mins,
     }
     df = pd.DataFrame(data_dict)
     df["resolution"] = resolution
