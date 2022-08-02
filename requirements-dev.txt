@@ -1,4 +1,5 @@
-pre-commit
 black
-isort
 flake8
+isort
+pre-commit
+pytest
