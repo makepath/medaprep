@@ -1,16 +1,19 @@
-import xarray as xr
 import pandas as pd
+import xarray as xr
 
 
 def skim(indata: xr.Dataset) -> pd.DataFrame:
     """
-    This function returns a dataframe with information about the variables, data types, null values, means, standard deviations, maximums, and minimums for a given dataset.
+    This function returns a dataframe with information about the variables,
+    data types, null values, means, standard deviations, maximums, and
+    minimums for a given dataset.
 
     Args:
         indata (xarray.Dataset)
 
     Returns:
-        skim_table (pandas.DataFrame) containing basic information about the dataset
+        skim_table (pandas.DataFrame) containing basic information about the
+        dataset
 
     """
     variables = list(indata.data_vars)
