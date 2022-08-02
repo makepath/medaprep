@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'geolt'
+project = 'porcupine'
 copyright = '2022, makepath'
 author = 'makepath'
 release = '0.0.1'
