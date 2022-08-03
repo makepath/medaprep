@@ -7,6 +7,14 @@ Welcome to porcupine's documentation!
 =================================
 
 .. toctree::
+   :caption: Introduction
+   :hidden:
+   :maxdepth: 2
+
+   intro.rst
+
+
+.. toctree::
    :maxdepth: 2
    :caption: Contents:
 
