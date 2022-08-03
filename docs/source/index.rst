@@ -34,3 +34,6 @@ Using Conda
    :caption: Contents
    :hidden:
    :maxdepth: 2
+
+   modules
+
