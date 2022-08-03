@@ -73,4 +73,3 @@ def test_skim(dataset_input):
     assert_series_equal(df_skim["variables"], target["variables"])
     assert_series_equal(df_skim["data_types"], target["data_types"])
     assert_series_equal(df_skim["NaNs"], target["NaNs"])
-    assert_series_equal(df_skim["CRS"], target["CRS"])
