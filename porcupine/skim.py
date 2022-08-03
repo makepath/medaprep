@@ -24,8 +24,8 @@ def skim(indata: xr.Dataset) -> pd.DataFrame:
     stds = indata.std().to_array().data
     maxs = indata.max().to_array().data
     mins = indata.min().to_array().data
-    CRS = indata.CRS
-    resolution = indata.resolution
+    CRS = indata.spatial_ref
+    resolution = indata.x.values[1]-indata.x.values[0]
 
     data_dict = {
         "variables": variables,
