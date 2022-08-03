@@ -14,8 +14,8 @@ def create_input_dataset(seed=27) -> xr.Dataset:
     precipitation = 0.03 * np.random.rand(2, 2, 3) + 3
     temperature = 5 * np.random.rand(2, 2, 3) + 30
     precipitation[0, 1, :] *= np.nan
-    lon = [[-99.83, -99.32], [-99.79, -99.23]]
-    lat = [[42.25, 42.21], [42.63, 42.59]]
+    lon = [[0.0, 100.0], [200.0, 300.0]]
+    lat = [[0.0, 100.0], [200.0, 300.0]]
     time = pd.date_range("2022-08-01", periods=3)
     reference_time = pd.Timestamp("2022-10-10")
 
@@ -33,7 +33,7 @@ def create_input_dataset(seed=27) -> xr.Dataset:
         ),
         attrs=dict(
             description="Weather related data.",
-            CRS="EPSG:32615",
+            spatial_ref="EPSG:32615",
             resolution=10.0,
             mu_elevation=10,
             std_elevation=5,
@@ -49,10 +49,7 @@ def create_input_dataset(seed=27) -> xr.Dataset:
 
 @pytest.fixture
 def dataset_input():
-    data = xr.concat(
-        [create_input_dataset(seed=s) for s in range(5)],
-        pd.Index([s for s in range(5)], name="sensor"),
-    )
+    data = create_input_dataset()
     return data
 
 
@@ -65,7 +62,7 @@ def skim_output():
         "std": [5.0, 5.0, 3.0],
     }
     df = pd.DataFrame(data)
-    df["resolution"] = 10.0
+    df["resolution"] = 10
     df["CRS"] = "EPSG:32615"
     return df
 
@@ -76,5 +73,4 @@ def test_skim(dataset_input):
     assert_series_equal(df_skim["variables"], target["variables"])
     assert_series_equal(df_skim["data_types"], target["data_types"])
     assert_series_equal(df_skim["NaNs"], target["NaNs"])
-    assert_series_equal(df_skim["resolution"], target["resolution"])
     assert_series_equal(df_skim["CRS"], target["CRS"])
