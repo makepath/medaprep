@@ -61,17 +61,16 @@ def query(
         folium.GeoJson(
             box(*bbox[i]),
             style_function=lambda x: dict(
-                fill=True, weight=1, opacity=0.5, color=color[i]
+                fill=False, weight=5, opacity=0.5, color=color[i]
             ),
-            name=name[i],
+            name=name[i]+" Center",
         ).add_to(m)
 
         folium.Marker(
             _compute_center(bbox[i]),
-            popup=name[i],
+            popup=name[i]+" Center",
             icon=folium.Icon(color=color[i], icon="info-sign"),
         ).add_to(m)
 
-    # automatically set bounds based on widest box
     m.fit_bounds(bounds=_convert_bounds(bbox[0]))
     return m
