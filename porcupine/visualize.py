@@ -1,6 +1,6 @@
 import folium
-from shapely.geometry import box
 import numpy as np
+from shapely.geometry import box
 
 
 def _convert_bounds(bbox: tuple) -> tuple:
@@ -34,13 +34,16 @@ def query(
     m: folium.Map,
     color: [str | list[str]],
 ) -> folium.Map:
-    """query takes in a list of bounding boxes (bbox), a list of names corresponding to the bounding boxes (name),
-    and a folium map (m). It adds the bounding boxes to the map (m) with the corresponding names, and colors the
-    boxes based on the list of colors (color). It then sets the bounds of the map based on the largest provided
-    bounding box, and returns the map.
+    """query takes in a list of bounding boxes (bbox), a list of names
+    corresponding to the bounding boxes (name), and a folium map (m).
+    It adds the bounding boxes to the map (m) with the corresponding
+    names, and colors the boxes based on the list of colors (color). It then
+    sets the bounds of the map based on the largest provided bounding box, and
+    returns the map.
 
     Args:
-        bbox (tuple(s)): containing (x1, y1, x2, y2) latitude and longitude coordinates of bounding boxes.
+        bbox (tuple(s)): containing (x1, y1, x2, y2)
+            latitude and longitude coordinates of bounding boxes.
         name (str): containing a name for each bbox.
         m (folium.Map): map to plot boxes on.
         color (str): color for each bounding box.
@@ -57,19 +60,19 @@ def query(
         color = [color]
     assert len(bbox) == len(name) == len(color)
 
-    for (b,n,c) in zip(bbox,name,color):
+    for (b, n, c) in zip(bbox, name, color):
         folium.GeoJson(
             box(*b),
-            style_function=lambda x,color=c:dict(
+            style_function=lambda x, color=c: dict(
                 fill=False, weight=5, opacity=0.5, color=color
             ),
-            name=n+" Center",
+            name=n + " Center",
             tooltip=n,
         ).add_to(m)
 
         folium.Marker(
             _compute_center(b),
-            popup=n+" Center",
+            popup=n + " Center",
             icon=folium.Icon(color=c, icon="star"),
         ).add_to(m)
 

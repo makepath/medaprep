@@ -2,7 +2,7 @@ import pandas as pd
 import xarray as xr
 
 
-def skim(indata: xr.Dataset) -> pd.DataFrame:
+def features(indata: xr.Dataset) -> pd.DataFrame:
     """
     This function returns a dataframe with information about the variables,
     data types, null values, means, standard deviations, maximums, and

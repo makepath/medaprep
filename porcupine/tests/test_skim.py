@@ -1,7 +1,7 @@
-import pytest
 import numpy as np
-import xarray as xr
 import pandas as pd
+import pytest
+import xarray as xr
 from pandas.testing import assert_series_equal
 
 from porcupine import skim
@@ -68,7 +68,7 @@ def skim_output():
 
 
 def test_skim(dataset_input):
-    df_skim = skim(dataset_input)
+    df_skim = skim.features(dataset_input)
     target = skim_output()
     assert_series_equal(df_skim["variables"], target["variables"])
     assert_series_equal(df_skim["data_types"], target["data_types"])
