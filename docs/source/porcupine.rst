@@ -15,6 +15,14 @@ porcupine.skim module
    :undoc-members:
    :show-inheritance:
 
+porcupine.visualize module
+--------------------------
+
+.. automodule:: porcupine.visualize
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
