@@ -45,7 +45,7 @@ def query(bbox: [tuple|list[tuple]], name: [str|list[str]], m: folium.Map, color
     for i in range(len(bbox)):
         folium.GeoJson(
                 box(*bbox[i]),
-                style_function=lambda x: dict(fill=False, 
+                style_function=lambda x: dict(fill=True, 
                     weight=1, 
                     opacity=0.5,
                     color=color[i]),
