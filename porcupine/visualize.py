@@ -57,19 +57,20 @@ def query(
         color = [color]
     assert len(bbox) == len(name) == len(color)
 
-    for i in range(len(bbox)):
+    for (b,n,c) in zip(bbox,name,color):
         folium.GeoJson(
-            box(*bbox[i]),
+            box(*b),
             style_function=lambda x: dict(
-                fill=False, weight=5, opacity=0.5, color=color[i]
+                fill=False, weight=5, opacity=0.5, color=c
             ),
-            name=name[i]+" Center",
+            name=n+" Center",
+            tooltip=n,
         ).add_to(m)
 
         folium.Marker(
-            _compute_center(bbox[i]),
-            popup=name[i]+" Center",
-            icon=folium.Icon(color=color[i], icon="info-sign"),
+            _compute_center(b),
+            popup=n+" Center",
+            icon=folium.Icon(color=c, icon="star"),
         ).add_to(m)
 
     m.fit_bounds(bounds=_convert_bounds(bbox[0]))
