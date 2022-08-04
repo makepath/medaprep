@@ -19,7 +19,21 @@ def _compute_bounds(bboxs:list[tuple])->tuple:
     return (x1, y1, x2, y2)
 
 def query(bbox: [tuple|list[tuple]], name: [str|list[str]], m: folium.Map, color: [str|list[str]])->folium.Map:
+    """query takes in a list of bounding boxes (bbox), a list of names corresponding to the bounding boxes (name),
+    and a folium map (m). It adds the bounding boxes to the map (m) with the corresponding names, and colors the
+    boxes based on the list of colors (color). It then sets the bounds of the map based on the largest provided
+    bounding box, and returns the map.
 
+    Args:
+        bbox (tuple(s)): containing (x1, y1, x2, y2) latitude and longitude coordinates of bounding boxes.
+        name (str): containing a name for each bbox.
+        m (folium.Map): map to plot boxes on.
+        color (str): color for each bounding box.
+
+    Returns:
+        folium.Map containing bounding boxes
+
+    """
     if not isinstance(bbox,list):
         bbox = [bbox]
     if not isinstance(name,list):
