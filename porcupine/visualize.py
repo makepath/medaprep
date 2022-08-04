@@ -60,8 +60,8 @@ def query(
     for (b,n,c) in zip(bbox,name,color):
         folium.GeoJson(
             box(*b),
-            style_function=lambda x: dict(
-                fill=False, weight=5, opacity=0.5, color=c
+            style_function=lambda x,color=c:dict(
+                fill=False, weight=5, opacity=0.5, color=color
             ),
             name=n+" Center",
             tooltip=n,
