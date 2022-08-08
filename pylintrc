@@ -1,0 +1,4 @@
+[FORMAT]
+# pylint's variable name checking is a bit aggressive, so
+# here we allow some names through as "good"
+good-names=b,c,d,df,ds,i,j,k,n,ex,Run,_,pk,x,xs,x1,x2,y,ys,y1,y2,y3

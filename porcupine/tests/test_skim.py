@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+"""Porcupine test suite for skim module.
+
+This module implements the test suite for porcupine's skim module.
+
+This module is intended to be executed by running pytest from the project's
+root directory.
+
+Todo:
+"""
 import numpy as np
 import pandas as pd
 import pytest
@@ -8,7 +18,7 @@ from porcupine import skim
 
 
 def create_input_dataset(seed=27) -> xr.Dataset:
-    # create test dataset
+    """Construct a test dataset to test against skim."""
     np.random.seed(seed)
     elevation = 5 * np.random.randn(2, 2, 3) + 10
     precipitation = 0.03 * np.random.rand(2, 2, 3) + 3
@@ -47,13 +57,15 @@ def create_input_dataset(seed=27) -> xr.Dataset:
     return ds
 
 
-@pytest.fixture
-def dataset_input():
+@pytest.fixture(name="dataset_input")
+def fixture_dataset_input():
+    """Test fixture to create a test input dataset."""
     data = create_input_dataset()
     return data
 
 
 def skim_output():
+    """Create the output we expect from running skim to test against."""
     data = {
         "variables": ["elevation", "temperature", "precipitation"],
         "data_types": ["float64", "float64", "float64"],
@@ -68,6 +80,7 @@ def skim_output():
 
 
 def test_skim(dataset_input):
+    """Test that skimming the constructed input matches the expected output."""
     df_skim = skim.features(dataset_input)
     target = skim_output()
     assert_series_equal(df_skim["variables"], target["variables"])

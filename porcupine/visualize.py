@@ -1,3 +1,14 @@
+# -*- coding: utf-8 -*-
+"""Visualize module for use with data processed by porcupine.
+
+This module implements visualization functionality that enables displaying
+the results of data processing outputs from porcupine.
+
+This module is part of the core porcupine library and is intended to be called
+by user code.
+
+Todo:
+"""
 import folium
 import numpy as np
 from shapely.geometry import box
@@ -31,7 +42,7 @@ def _compute_center(bbox):
 def query(
     bbox: [tuple | list[tuple]],
     name: [str | list[str]],
-    m: folium.Map,
+    folium_map: folium.Map,
     color: [str | list[str]],
 ) -> folium.Map:
     """query takes in a list of bounding boxes (bbox), a list of names
@@ -68,13 +79,13 @@ def query(
             ),
             name=n + " Center",
             tooltip=n,
-        ).add_to(m)
+        ).add_to(folium_map)
 
         folium.Marker(
             _compute_center(b),
             popup=n + " Center",
             icon=folium.Icon(color=c, icon="star"),
-        ).add_to(m)
+        ).add_to(folium_map)
 
-    m.fit_bounds(bounds=_convert_bounds(bbox[0]))
-    return m
+    folium_map.fit_bounds(bounds=_convert_bounds(bbox[0]))
+    return folium_map

@@ -1,11 +1,12 @@
 # install: mamba env create -f environment.yml
 # update: mamba env update -f environment.yml
 
-name: geolt-notebooks
+name: porcupine-notebooks
 channels:
   - conda-forge
 dependencies:
   - notebook
+  - pandas
   - geopandas
   - rasterio
   - rioxarray
@@ -18,3 +19,6 @@ dependencies:
   - shapely
   - pystac-client
   - s3fs
+  - folium
+  - planetary-computer
+  - odc-stac
