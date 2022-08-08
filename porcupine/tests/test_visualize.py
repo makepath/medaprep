@@ -1,3 +1,14 @@
+# -*- coding: utf-8 -*-
+"""Porcupine test suite for visualize module.
+
+This module implements the test suite for porcupine's visualize module.
+
+This module is intended to be executed by running pytest from the project's
+root directory.
+
+Todo:
+    * Assert that bounds from folium are the bounds we expect.
+"""
 import folium
 import folium.plugins
 import pytest

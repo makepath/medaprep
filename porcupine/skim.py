@@ -1,3 +1,14 @@
+# -*- coding: utf-8 -*-
+"""Skim module.
+
+This module implements utility functions that provide high level details of
+raster data.
+
+This module is part of the core porcupine library and is intended to be called
+by user code.
+
+Todo:
+"""
 import pandas as pd
 import xarray as xr
 

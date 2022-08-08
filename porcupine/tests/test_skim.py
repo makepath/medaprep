@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+"""Porcupine test suite for skim module.
+
+This module implements the test suite for porcupine's skim module.
+
+This module is intended to be executed by running pytest from the project's
+root directory.
+
+Todo:
+"""
 import numpy as np
 import pandas as pd
 import pytest
