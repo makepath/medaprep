@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import pytest
 import xarray as xr
+
 from porcupine import skim
 
 
@@ -57,4 +58,3 @@ def fixture_test_skim_df(test_dataset):
     """Test skim DataFrame."""
     df_skim = skim.features(test_dataset)
     return df_skim
-
