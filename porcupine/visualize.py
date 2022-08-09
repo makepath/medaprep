@@ -7,10 +7,15 @@ the results of data processing outputs from porcupine.
 This module is part of the core porcupine library and is intended to be called
 by user code.
 
-Todo:
 """
+import colorcet as cc
 import folium
 import numpy as np
+import pandas as pd
+import xarray as xr
+from bokeh.models import ColumnDataSource
+from bokeh.plotting import figure
+from scipy.stats import gaussian_kde
 from shapely.geometry import box
 
 
@@ -89,3 +94,57 @@ def query(
 
     folium_map.fit_bounds(bounds=_convert_bounds(bbox[0]))
     return folium_map
+
+
+def distributions(
+    indata: xr.Dataset, skim_table: pd.DataFrame, sample_size: int
+) -> list:
+    """
+    This function returns a list of bokeh figures containing
+    estimated distributions of the variables within the
+    dataset.
+
+    Args:
+        indata (xarray.Dataset):
+        skim_table (pandas.DataFrame): dataframe containing
+            basic info about the dataset.
+
+    Returns:
+        est_pdfs (list): bokeh figures containing estimated
+            distributions of each variable.
+
+    """
+    est_pdfs = []
+    epsilon = 0.00001
+    palette = [cc.rainbow[i * 15] for i in range(17)]
+    for i, row in skim_table.iterrows():
+        variable = row["variables"]
+        min_val = row["minimums"]
+        max_val = row["maximums"]
+        data_np = indata[variable].to_dataframe()[variable].values
+        if row["NaNs"]:
+            data_np = data_np[~np.isnan(data_np)]
+        pdf = gaussian_kde(data_np)
+        x = np.linspace(int(min_val - 5.0), int(max_val + 20.0), sample_size)
+        y = pdf(x)
+        y /= np.sum(y) + epsilon
+        p = figure(
+            title=variable,
+            height=300,
+            width=900,
+            x_range=(int(min_val - 5.0), int(max_val + 10.0)),
+            toolbar_location="above",
+            height_policy="auto",
+        )
+        source = ColumnDataSource(data=dict(x=x, y=y))
+        p.patch(
+            x="x",
+            y="y",
+            color=palette[i],
+            alpha=0.6,
+            line_color="black",
+            source=source,
+        )
+        p.title.text_font_size = "25px"
+        est_pdfs.append(p)
+    return est_pdfs

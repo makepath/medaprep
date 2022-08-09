@@ -16,6 +16,12 @@ import pytest
 from porcupine import visualize
 
 
+def test_visualize_distributions(test_dataset, test_skim_df):
+    """Test bokeh distribution plotting."""
+    f = visualize.distributions(test_dataset, test_skim_df, sample_size=10)
+    assert len(f) == len(test_skim_df)
+
+
 @pytest.fixture(name="create_single_input")
 def fixture_create_single_input():
     """Test utility function to create a single input."""
