@@ -9,9 +9,7 @@ root directory.
 Todo:
 """
 import pandas as pd
-import pytest
 from pandas.testing import assert_series_equal
-from porcupine import skim
 
 
 def skim_output():
@@ -35,4 +33,3 @@ def test_skim(test_skim_df):
     assert_series_equal(test_skim_df["variables"], target["variables"])
     assert_series_equal(test_skim_df["data_types"], target["data_types"])
     assert_series_equal(test_skim_df["NaNs"], target["NaNs"])
-

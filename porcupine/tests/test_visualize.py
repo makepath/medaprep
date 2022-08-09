@@ -9,15 +9,11 @@ root directory.
 Todo:
     * Assert that bounds from folium are the bounds we expect.
 """
-import colorcet as cc
 import folium
 import folium.plugins
-import numpy as np
 import pytest
-from bokeh.layouts import layout
-from bokeh.plotting import figure
-from porcupine import skim, visualize
-from scipy.stats import gaussian_kde
+
+from porcupine import visualize
 
 
 @pytest.fixture(name="create_single_input")
