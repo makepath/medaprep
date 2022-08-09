@@ -29,10 +29,10 @@ def skim_output():
     return df
 
 
-def test_skim(test_dataset):
+def test_skim(test_skim_df):
     """Test that skimming the constructed input matches the expected output."""
-    df_skim = skim.features(test_dataset)
     target = skim_output()
-    assert_series_equal(df_skim["variables"], target["variables"])
-    assert_series_equal(df_skim["data_types"], target["data_types"])
-    assert_series_equal(df_skim["NaNs"], target["NaNs"])
+    assert_series_equal(test_skim_df["variables"], target["variables"])
+    assert_series_equal(test_skim_df["data_types"], target["data_types"])
+    assert_series_equal(test_skim_df["NaNs"], target["NaNs"])
+

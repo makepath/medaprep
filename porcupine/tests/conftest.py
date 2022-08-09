@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import pytest
 import xarray as xr
+from porcupine import skim
 
 
 def create_input_dataset(seed=27) -> xr.Dataset:
@@ -49,3 +50,11 @@ def fixture_test_dataset():
     """Test fixture to create a test input dataset."""
     data = create_input_dataset()
     return data
+
+
+@pytest.fixture(name="test_skim_df", scope="session")
+def fixture_test_skim_df(test_dataset):
+    """Test skim DataFrame."""
+    df_skim = skim.features(test_dataset)
+    return df_skim
+

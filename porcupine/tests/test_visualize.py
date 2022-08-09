@@ -9,11 +9,15 @@ root directory.
 Todo:
     * Assert that bounds from folium are the bounds we expect.
 """
+import colorcet as cc
 import folium
 import folium.plugins
+import numpy as np
 import pytest
-
-from porcupine import visualize
+from bokeh.layouts import layout
+from bokeh.plotting import figure
+from porcupine import skim, visualize
+from scipy.stats import gaussian_kde
 
 
 @pytest.fixture(name="create_single_input")
@@ -32,7 +36,7 @@ def fixture_create_single_input():
 
 
 @pytest.fixture(name="create_multiple_input")
-def fixutre_create_multiple_input():
+def fixture_create_multiple_input():
     """Test utility function to create multiple inputs."""
     bbox = [
         (
