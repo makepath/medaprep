@@ -20,11 +20,11 @@ def features(indata: xr.Dataset) -> pd.DataFrame:
     minimums for a given dataset.
 
     Args:
-        indata (xarray.Dataset)
+        indata (xarray.Dataset): datset to be skimmed.
 
     Returns:
-        skim_table (pandas.DataFrame) containing basic information about the
-        dataset
+        (pandas.DataFrame): table containing basic information about the
+        dataset.
 
     """
     variables = list(indata.data_vars)
