@@ -50,7 +50,8 @@ def query(
     folium_map: folium.Map,
     color: [str | list[str]],
 ) -> folium.Map:
-    """query takes in a list of bounding boxes (bbox), a list of names
+    """
+    query takes in a list of bounding boxes (bbox), a list of names
     corresponding to the bounding boxes (name), and a folium map (m).
     It adds the bounding boxes to the map (m) with the corresponding
     names, and colors the boxes based on the list of colors (color). It then
@@ -58,8 +59,8 @@ def query(
     returns the map.
 
     Args:
-        bbox (tuple(s)): containing (x1, y1, x2, y2)
-            latitude and longitude coordinates of bounding boxes.
+        bbox (tuple(s)): containing (x1, y1, x2, y2) latitude and longitude
+        coordinates of bounding boxes.
         name (str): containing a name for each bbox.
         m (folium.Map): map to plot boxes on.
         color (str): color for each bounding box.
@@ -105,13 +106,13 @@ def distributions(
     dataset.
 
     Args:
-        indata (xarray.Dataset):
-        skim_table (pandas.DataFrame): dataframe containing
-            basic info about the dataset.
+        indata (xarray.Dataset)
+        skim_table (pandas.DataFrame): dataframe containing basic info about
+        the dataset.
 
     Returns:
-        est_pdfs (list): bokeh figures containing estimated
-            distributions of each variable.
+        est_pdfs (list): bokeh figures containing estimated distributions of
+        each variable.
 
     """
     est_pdfs = []
