@@ -19,7 +19,7 @@ Include description of this feature's design with enough detail for those who ar
 **Usage:** 
 Detailed instructions for this feature's use. 
 
-**Value:** What value does the implementation of this new feature bring to geolt.
+**Value:** What value does the implementation of this new feature bring to porcupine.
 ## Stakeholders and Impacts
 Who are the stakeholders in this update? Will you be implementing this new feature or will someone else? What is the potential impact of implementing this new feature? Specifically, what are some other components would be impacted? 
 ## Drawbacks
@@ -28,6 +28,6 @@ What are potential reasons why this feature should not be implemented?
 Describe other solutions or features you have considered when coming up with this proposal.
 
 ## Unresolved Questions
-What are parts of this feature's design that are undecided.
+What are parts of this feature's design that are undecided?
 ## Additional Notes or Context
 Anything else that is important to know for the implementation of this new feature.
