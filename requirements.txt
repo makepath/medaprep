@@ -1,4 +1,5 @@
 folium
 numpy
 pandas
+shapely
 xarray

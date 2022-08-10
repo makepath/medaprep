@@ -60,7 +60,7 @@ def query(
 
     Args:
         bbox (tuple(s)): containing (x1, y1, x2, y2) latitude and longitude
-        coordinates of bounding boxes.
+            coordinates of bounding boxes.
         name (str): containing a name for each bbox.
         m (folium.Map): map to plot boxes on.
         color (str): color for each bounding box.
@@ -106,13 +106,13 @@ def distributions(
     dataset.
 
     Args:
-        indata (xarray.Dataset)
+        indata (xarray.Dataset): input data containing variables which
+            distributions will be estimated from.
         skim_table (pandas.DataFrame): dataframe containing basic info about
-        the dataset.
+            the dataset.
 
     Returns:
-        est_pdfs (list): bokeh figures containing estimated distributions of
-        each variable.
+        Bokeh figures containing estimated distributions of each variable.
 
     """
     est_pdfs = []
