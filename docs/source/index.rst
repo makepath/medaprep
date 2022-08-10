@@ -36,4 +36,5 @@ Using Conda
    :maxdepth: 2
 
    modules
+   examples
 

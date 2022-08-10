@@ -5,6 +5,7 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+import sphinx_rtd_theme
 
 project = 'porcupine'
 copyright = '2022, makepath'
@@ -14,15 +15,18 @@ release = '0.0.1'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.napoleon','sphinx.ext.autodoc', 'sphinx.ext.coverage']
+extensions = ['sphinx.ext.napoleon',
+        'sphinx.ext.autodoc', 
+        'sphinx.ext.coverage',
+        'sphinx_rtd_theme']
 
 templates_path = ['_templates']
 exclude_patterns = []
-
+napoleon_google_docstring = True
 
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'pydata_sphinx_theme'
+html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']

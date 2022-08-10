@@ -3,5 +3,5 @@ flake8
 isort
 pre-commit
 pytest
-pydata-sphinx-theme
+sphinx_rtd_theme
 sphinx
