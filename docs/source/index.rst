@@ -3,14 +3,14 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to porcupine's documentation!
+Welcome to medaprep's documentation!
 =====================================
 Overview
 ########
 
-Porcupine is a data preparation and feature engineering toolkit for geospatial applications. 
+medaprep is a data preparation and feature engineering toolkit for geospatial applications. 
 
-Porcupine comes from unit-porcupine, a representation of a common problem in high-dimensional datasets. As the dimensionality of the data increases, samples tend to exist at the "tips of the quills of a porcupine" in hyperspace. This library focuses on providing a simple workflow for dealing with large high-dimensional datasets.
+This library focuses on providing a simple workflow for dealing with large high-dimensional datasets.
 
 
 Installation
@@ -21,14 +21,14 @@ Using pip
 
 .. code-block:: bash
 
-   pip install porcupine
+   pip install medaprep
 
 Using Conda
 ***********
 
 .. code-block:: bash
 
-   conda install -c conda-forge porcupine
+   conda install -c conda-forge medaprep
 
 .. toctree::
    :caption: Contents
