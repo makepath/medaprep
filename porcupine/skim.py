@@ -4,7 +4,7 @@
 This module implements utility functions that provide high level details of
 raster data.
 
-This module is part of the core porcupine library and is intended to be called
+This module is part of the core medaprep library and is intended to be called
 by user code.
 
 Todo:
@@ -33,7 +33,7 @@ def features(indata: xr.Dataset) -> pd.DataFrame:
             >>> import numpy as np
             >>> import pandas as pd
             >>> import xarray as xr
-            >>> from porcupine import skim
+            >>> from medaprep import skim
 
             >>> temp = 15 + 8 * np.random.randn(2, 2, 3)
             >>> precip = 10 * np.random.rand(2, 2, 3)
