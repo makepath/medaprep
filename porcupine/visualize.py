@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-"""Visualize module for use with data processed by porcupine.
+"""Visualize module for use with data processed by medaprep.
 
 This module implements visualization functionality that enables displaying
-the results of data processing outputs from porcupine.
+the results of data processing outputs from medaprep.
 
-This module is part of the core porcupine library and is intended to be called
+This module is part of the core medaprep library and is intended to be called
 by user code.
 
 """
