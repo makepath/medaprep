@@ -1,12 +1,12 @@
-porcupine
+medaprep
 #########
 
-High-dimensional data can be *prickly*, use porcupine to prepare ``xarray`` Datasets for downstream tasks.
+High-dimensional data can be *prickly*, use medaprep to prepare ``xarray`` Datasets for downstream tasks.
 
 Usage
 #####
 
-porcupine.skim.features
+medaprep.skim.features
 -----------------------
 
 .. code-block:: python
@@ -14,7 +14,7 @@ porcupine.skim.features
     >>> import numpy as np
     >>> import pandas as pd
     >>> import xarray as xr
-    >>> from porcupine import skim
+    >>> from medaprep import skim
     >>> temp = 15 + 8 * np.random.randn(2, 2, 3)
     >>> precip = 10 * np.random.rand(2, 2, 3)
     >>> lon = [[-99.83, -99.32], [-99.79, -99.23]]
@@ -47,14 +47,14 @@ Using pip
 
 .. code-block:: bash
 
-   pip install porcupine
+   pip install medaprep
 
 Using Conda
 -----------
 
 .. code-block:: bash
 
-   conda install -c conda-forge porcupine
+   conda install -c conda-forge medaprep
 
 
 Developing
