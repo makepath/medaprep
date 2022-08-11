@@ -3,7 +3,7 @@ import pandas as pd
 import pytest
 import xarray as xr
 
-from porcupine import skim
+from medaprep import skim
 
 
 def create_input_dataset(seed=27) -> xr.Dataset:
