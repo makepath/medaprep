@@ -6,9 +6,11 @@ This module implements the test suite for medaprep's visualize module.
 This module is intended to be executed by running pytest from the project's
 root directory.
 
-Todo:
-    * Assert that bounds from folium are the bounds we expect.
 """
+
+# Todo:
+# Assert that bounds from folium are the bounds we expect.
+
 import folium
 import folium.plugins
 import pytest
