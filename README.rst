@@ -1,7 +1,7 @@
 medaprep
 #########
 
-High-dimensional data can be *prickly*, use medaprep to prepare ``xarray`` Datasets for downstream tasks.
+medaprep is used to prepare ``xarray`` Datasets for downstream tasks.
 
 Usage
 #####
