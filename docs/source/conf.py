@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import sphinx_rtd_theme
 
-project = 'porcupine'
+project = 'medaprep'
 copyright = '2022, makepath'
 author = 'makepath'
 release = '0.1.0'
