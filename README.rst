@@ -80,3 +80,7 @@ You can then test pre-commit by running:
 .. code-block:: bash
 
    pre-commit
+
+.. _`Documentation`: https://medaprep.readthedocs.io/
+
+.. _`Sample Notebooks`: https://medaprep.readthedocs.io/en/latest/examples.html
