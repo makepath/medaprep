@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Porcupine test suite for visualize module.
+"""medaprep test suite for visualize module.
 
-This module implements the test suite for porcupine's visualize module.
+This module implements the test suite for medaprep's visualize module.
 
 This module is intended to be executed by running pytest from the project's
 root directory.
@@ -13,7 +13,7 @@ import folium
 import folium.plugins
 import pytest
 
-from porcupine import visualize
+from medaprep import visualize
 
 
 def test_visualize_distributions(test_dataset, test_skim_df):
