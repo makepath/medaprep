@@ -1,7 +1,7 @@
 version: 2
 
 python:
-  version: 3.10
+  version: "3.10"
   install:
     - requirements: dev-requirements.txt
 
@@ -9,3 +9,4 @@ sphinx:
   builder: html
   configuration: docs/source/conf.py
   fail_on_warning: true
+  
