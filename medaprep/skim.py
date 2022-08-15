@@ -7,7 +7,6 @@ raster data.
 This module is part of the core medaprep library and is intended to be called
 by user code.
 
-Todo:
 """
 import pandas as pd
 import xarray as xr
