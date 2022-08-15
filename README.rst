@@ -1,6 +1,8 @@
 medaprep
 #########
 
+|Documentation Status|
+
 medaprep is used to prepare ``xarray`` Datasets for downstream tasks.
 
 Usage
@@ -80,6 +82,10 @@ You can then test pre-commit by running:
 .. code-block:: bash
 
    pre-commit
+
+.. |Documentation Status| image:: https://readthedocs.org/projects/medaprep/badge/?version=latest
+    :target: https://medaprep.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
 
 .. _`Documentation`: https://medaprep.readthedocs.io/
 
