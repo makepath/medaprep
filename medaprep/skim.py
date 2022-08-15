@@ -12,6 +12,62 @@ import pandas as pd
 import xarray as xr
 
 
+def _dask_skim_memory(indata: xr.Dataset) -> pd.Series:
+    """Skim memory of dask-backed Xarray Dataset."""
+    ddf = indata.to_dask_dataframe()
+    s = ddf.memory_usage().compute()
+    return s
+
+def _skim_memory(indata: xr.Dataset) -> pd.Series:
+    """Skim memory of Xarray Dataset."""
+    df = indata.to_dataframe()
+    s = df.memory_usage()
+    return s
+
+
+def memory(indata: xr.Dataset) -> pd.Series:
+    """
+    This function uses utilities from pandas and dask (for dask-backed datasets)
+    to check the memory size of the input dataset.
+
+    Args:
+        indata (xarray.Dataset): dataset to be skimmed.
+
+    Returns:
+        (pandas.Series): series containing number of bytes for each column.
+
+    Example:
+
+        .. code-block:: python
+
+            >>> print(data)
+                <xarray.Dataset>
+                Dimensions:      (time: 1, y: 1142, x: 1137)
+                Coordinates:
+                    * y            (y) float64 3.716e+06 3.715e+06 ... 3.351e+06 3.351e+06
+                    * x            (x) float64 -1.102e+07 -1.102e+07 ... -1.066e+07 -1.066e+07
+                    spatial_ref  int32 3857
+                    * time         (time) datetime64[ns] 2022-07-03T17:25:22
+                Data variables:
+                    visual       (time, y, x) uint8 dask.array<chunksize=(1, 1142, 1137), meta=np.ndarray>
+                    B01          (time, y, x) uint16 dask.array<chunksize=(1, 1142, 1137), meta=np.ndarray>
+            >>> print(skim.memory(data))
+            Index          6576899
+            visual         1298454
+            B01            2596908
+            spatial_ref    5193816
+            dtype: int64
+
+    """
+    # check if input is xarray dataset
+    assert isinstance(indata, xr.Dataset)
+
+    # check if input is a dask xarray dataset
+    if indata.chunks:
+        return _dask_skim_memory(indata)
+    else:
+        return _skim_memory(indata)
+
 def features(indata: xr.Dataset) -> pd.DataFrame:
     """
     This function returns a dataframe with information about the variables,
