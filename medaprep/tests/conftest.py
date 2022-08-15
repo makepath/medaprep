@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 import pytest
 import xarray as xr
-from medaprep import skim
 
 
 def create_input_dataset(seed=27) -> xr.Dataset:
@@ -50,5 +49,4 @@ def fixture_test_dataset():
     """Test fixture to create a test input dataset."""
     data = create_input_dataset()
     return data
-
 
