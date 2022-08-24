@@ -1,0 +1,37 @@
+name: Python Test Suite
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 5
+    steps:
+      - name: pytest-cover
+        # You may pin to the exact commit or the version.
+        # uses: dima-engineer/pytester@b8743847dfa8f812daab97627d15da58f5695f4c
+        uses: dima-engineer/pytester@v0.1
+        with:
+          # Version of python
+          python-version: 3.10.6
+          # Python package manager. Pip by default
+          package-manager: pip
+          # Path to the requirements file if you use pip. ./requirements.txt by default
+          requirements-file: ./requirements.txt
+          # root directory to recursively search for .py files
+          pytest-root-dir: ./medaprep/# optional, default is .
+          # directory with pytest tests. if left empty will identify test(s) dir by default
+          pytest-tests-dir: ./medaprep/tests/
+          # list of directories and/or files to ignore
+          cov-omit-list: ./docs
+          # fail if any single file coverage is less than threshold
+          cov-threshold-single: 70
+          # fail if the total coverage is less than threshold
+          cov-threshold-total: 70
