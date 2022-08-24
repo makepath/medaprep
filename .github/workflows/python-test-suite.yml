@@ -23,20 +23,8 @@ jobs:
       with:
         python-version: 3.10.6
 
-    - name: Get some info
-      run: |
-        $CONDA/bin/conda info
-    - name: Install dependencies
-      run: |
-        # $CONDA is an environment variable pointing to the root of the miniconda directory
-    - name: Activate environment
-      run: |
-        $CONDA/bin/pip install pytest
-        $CONDA/bin/pip install flake8
-    - name: Install medaprep code
-      run: |
-        $CONDA/bin/pip install -e .
     - name: Test with pytest
       run: |
+        $CONDA/bin/pip install -e .
         $CONDA/bin/pip install pytest
         $CONDA/bin/pytest -vvs medaprep/tests
