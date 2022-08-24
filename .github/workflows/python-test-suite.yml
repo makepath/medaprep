@@ -15,16 +15,14 @@ jobs:
       max-parallel: 5
 
     steps:
-    - name: Checkout source
-      uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10.6
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-    - name: Set up Python 3.10.6
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-
-    - name: Test with pytest
-      run: |
-        $CONDA/bin/pip install -e .
-        $CONDA/bin/pip install pytest
-        $CONDA/bin/pytest -vvs medaprep/tests
+      - name: Test with pytest
+        run: |
+          $CONDA/bin/pip install -e .
+          $CONDA/bin/pip install pytest
+          $CONDA/bin/pytest -vvs medaprep/tests
