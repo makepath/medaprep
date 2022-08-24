@@ -49,4 +49,3 @@ def fixture_test_dataset():
     """Test fixture to create a test input dataset."""
     data = create_input_dataset()
     return data
-

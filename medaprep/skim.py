@@ -18,6 +18,7 @@ def _dask_skim_memory(indata: xr.Dataset) -> pd.Series:
     s = ddf.memory_usage().compute()
     return s
 
+
 def _skim_memory(indata: xr.Dataset) -> pd.Series:
     """Skim memory of Xarray Dataset."""
     df = indata.to_dataframe()
@@ -58,7 +59,7 @@ def memory(indata: xr.Dataset) -> pd.Series:
             spatial_ref    5193816
             dtype: int64
 
-    """
+    """  # noqa: E501
     # check if input is xarray dataset
     assert isinstance(indata, xr.Dataset)
 
@@ -67,6 +68,7 @@ def memory(indata: xr.Dataset) -> pd.Series:
         return _dask_skim_memory(indata)
     else:
         return _skim_memory(indata)
+
 
 def features(indata: xr.Dataset) -> pd.DataFrame:
     """
@@ -113,7 +115,7 @@ def features(indata: xr.Dataset) -> pd.DataFrame:
             0   temperature     float64     False   14.3177 9.08339 30.3361     -7.76803
             1   precipitation   float64     False   4.62568 3.03081 9.89768     0.147005
 
-    """
+    """  # noqa: E501
     variables = list(indata.data_vars)
     d = dict(indata.dtypes)
     types = [d[v] for v in list(indata.data_vars)]

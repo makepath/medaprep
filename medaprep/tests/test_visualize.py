@@ -22,20 +22,23 @@ from medaprep import visualize
 def skim_example_output():
     """Create the output we expect from running skim to test against."""
     data = {
-            "variables": ["elevation", "temperature", "precipitation"],
-            "data_types": ["float64", "float64", "float64"],
-            "NaNs": [False, False, True],
-            "mean": [10.0, 30.0, 3.0],
-            "std": [5.0, 5.0, 3.0],
-            "maximums": [50.0, 75.0, 9.0],
-            "minimums": [-0.1, 22.0, -1.2],
-            }
+        "variables": ["elevation", "temperature", "precipitation"],
+        "data_types": ["float64", "float64", "float64"],
+        "NaNs": [False, False, True],
+        "mean": [10.0, 30.0, 3.0],
+        "std": [5.0, 5.0, 3.0],
+        "maximums": [50.0, 75.0, 9.0],
+        "minimums": [-0.1, 22.0, -1.2],
+    }
     df = pd.DataFrame(data)
     return df
 
+
 def test_visualize_distributions(test_dataset, skim_example_output):
     """Test bokeh distribution plotting."""
-    f = visualize.distributions(test_dataset, skim_example_output, sample_size=10)
+    f = visualize.distributions(
+        test_dataset, skim_example_output, sample_size=10
+    )
     assert len(f) == len(skim_example_output)
 
 

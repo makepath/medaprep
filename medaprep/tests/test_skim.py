@@ -47,30 +47,30 @@ def skim_memory_input():
     lon = [[-99.83, -99.32], [-99.79, -99.23]]
     lat = [[42.25, 42.21], [42.63, 42.59]]
     ds = xr.Dataset(
-            {
-                "temperature": (["x", "y", "time"], temp),
-                "precipitation": (["x", "y", "time"], precip),
-                },
-            coords={
-                "lon": (["x", "y"], lon),
-                "lat": (["x", "y"], lat),
-                "time": pd.date_range("2014-09-06", periods=3),
-                "reference_time": pd.Timestamp("2014-09-05"),
-                },
-            )
+        {
+            "temperature": (["x", "y", "time"], temp),
+            "precipitation": (["x", "y", "time"], precip),
+        },
+        coords={
+            "lon": (["x", "y"], lon),
+            "lat": (["x", "y"], lat),
+            "time": pd.date_range("2014-09-06", periods=3),
+            "reference_time": pd.Timestamp("2014-09-05"),
+        },
+    )
     return ds
 
 
 def skim_memory_output():
     """Create the expected output from skim memory."""
     data = {
-            "Index": 577,
-            "temperature": 96,
-            "precipitation": 96,
-            "lon": 96,
-            "lat": 96,
-            "reference_time": 96
-            }
+        "Index": 577,
+        "temperature": 96,
+        "precipitation": 96,
+        "lon": 96,
+        "lat": 96,
+        "reference_time": 96,
+    }
 
     s = pd.Series(data)
     return s
@@ -91,17 +91,17 @@ def skim_memory_dask_input():
     lon = [[-99.83, -99.32], [-99.79, -99.23]]
     lat = [[42.25, 42.21], [42.63, 42.59]]
     ds = xr.Dataset(
-            {
-                "temperature": (["x", "y", "time"], temp),
-                "precipitation": (["x", "y", "time"], precip),
-                },
-            coords={
-                "lon": (["x", "y"], lon),
-                "lat": (["x", "y"], lat),
-                "time": pd.date_range("2014-09-06", periods=3),
-                "reference_time": pd.Timestamp("2014-09-05"),
-                },
-            )
+        {
+            "temperature": (["x", "y", "time"], temp),
+            "precipitation": (["x", "y", "time"], precip),
+        },
+        coords={
+            "lon": (["x", "y"], lon),
+            "lat": (["x", "y"], lat),
+            "time": pd.date_range("2014-09-06", periods=3),
+            "reference_time": pd.Timestamp("2014-09-05"),
+        },
+    )
     ds = ds.chunk(chunks={})
     return ds
 
@@ -109,16 +109,16 @@ def skim_memory_dask_input():
 def skim_memory_dask_output():
     """Create the expected output from skim memory for dask dataset."""
     data = {
-            "Index": 128,
-            "lat": 96,
-            "lon": 96,
-            "precipitation": 96,
-            "reference_time": 96,
-            "temperature": 96,
-            "time": 96,
-            "x": 96,
-            "y": 96,
-            }
+        "Index": 128,
+        "lat": 96,
+        "lon": 96,
+        "precipitation": 96,
+        "reference_time": 96,
+        "temperature": 96,
+        "time": 96,
+        "x": 96,
+        "y": 96,
+    }
     s = pd.Series(data)
     return s
 
@@ -128,4 +128,3 @@ def test_skim_dask_memory(test_skim_dask_dataset):
     target = skim_memory_dask_output()
     skim_memory_df = skim.memory(test_skim_dask_dataset)
     assert_series_equal(target, skim_memory_df)
-
