@@ -26,6 +26,6 @@ jobs:
 
       - name: Test with pytest
         run: |
-          $CONDA/bin/pip install -e .
-          $CONDA/bin/pip install pytest
+          python -m pip install -e .
+          python -m pip install pytest
           $CONDA/bin/pytest -vvs medaprep/tests
