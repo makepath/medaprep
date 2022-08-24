@@ -28,4 +28,4 @@ jobs:
         run: |
           python -m pip install -e .
           python -m pip install pytest
-          $CONDA/bin/pytest -vvs medaprep/tests
+          pytest -vvs medaprep/tests
