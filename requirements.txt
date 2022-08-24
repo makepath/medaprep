@@ -1,5 +1,9 @@
+bokeh
+colorcet
+dask
 folium
 numpy
 pandas
+scipy
 shapely
 xarray
